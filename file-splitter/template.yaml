@@ -1,0 +1,20 @@
+Transform: 'AWS::Serverless-2016-10-31'
+Resources:
+
+  FileSplitter:
+    # This resource creates a Lambda function.
+    Type: 'AWS::Serverless::Function'
+
+    Properties:
+      # This function uses the Nodejs v6.10 runtime.
+      Runtime: python3.7
+
+      # This is the Lambda function's handler.
+      Handler: splitter.handle
+      Environment:
+              Variables:
+                S3_HOST: "http://cloudserver-front:8000"
+                KINESIS_HOST: "http://kinesis:4567"
+                AWS_ACCESS_KEY_ID: accessKey1
+                AWS_SECRET_ACCESS_KEY: verySecretKey1
+                STREAM_NAME: test

@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  s3:
+    container_name: cloudserver-front
+    image: scality/s3server:mem-latest
+    ports:
+      - "8000:8000"
+    networks:
+      cloud:
+        aliases:
+          - "infare-dev-test.cloudserver-front"
+  kinesis:
+    container_name: kinesis
+    image: vsouza/kinesis-local:latest
+    command: --port 4567
+    restart: always
+    ports:
+      - 4567:4567
+    networks:
+      - cloud
+networks:
+  cloud:
+    driver: bridge
