@@ -1,85 +1,28 @@
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:3:8: not found: object sbtassembly
-[error] import sbtassembly.AssemblyPlugin.autoImport.{ShadeRule, _}
-[error]        ^
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:4:8: not found: object sbtbuildinfo
-[error] import sbtbuildinfo.BuildInfoPlugin.autoImport._
-[error]        ^
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:38:5: not found: value buildInfoKeys
-[error]     buildInfoKeys := Seq[BuildInfoKey](name, version, scalaVersion, sbtVersion, "sparkVersion" -> sparkVersion),
-[error]     ^
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:38:26: not found: type BuildInfoKey
-[error]     buildInfoKeys := Seq[BuildInfoKey](name, version, scalaVersion, sbtVersion, "sparkVersion" -> sparkVersion),
-[error]                          ^
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:39:5: not found: value buildInfoPackage
-[error]     buildInfoPackage := organization.value + "." + name.value.filter(_.isLetter),
-[error]     ^
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:40:5: not found: value buildInfoOptions
-[error]     buildInfoOptions += BuildInfoOption.Traits("com.infare.scheduler.common.buildinfo.BuildInfoTrait")
-[error]     ^
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:40:25: not found: value BuildInfoOption
-[error]     buildInfoOptions += BuildInfoOption.Traits("com.infare.scheduler.common.buildinfo.BuildInfoTrait")
-[error]                         ^
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:49:39: not found: value baseAssemblySettings
+[error] /home/smiklos/work/cloud-fun/project/Settings.scala:41:39: not found: value baseAssemblySettings
 [error]   val withAssembly: Seq[Setting[_]] = baseAssemblySettings ++ Seq(
 [error]                                       ^
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:50:5: not found: value assemblyMergeStrategy
+[error] /home/smiklos/work/cloud-fun/project/Settings.scala:42:5: not found: value assemblyMergeStrategy
 [error]     assemblyMergeStrategy in assembly := {
 [error]     ^
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:50:30: not found: value assembly
+[error] /home/smiklos/work/cloud-fun/project/Settings.scala:42:30: not found: value assembly
 [error]     assemblyMergeStrategy in assembly := {
 [error]                              ^
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:51:12: not found: value PathList
+[error] /home/smiklos/work/cloud-fun/project/Settings.scala:43:12: not found: value PathList
 [error]       case PathList("javax", "xml", xs@_*) => MergeStrategy.last
 [error]            ^
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:51:41: star patterns must correspond with varargs parameters
+[error] /home/smiklos/work/cloud-fun/project/Settings.scala:43:41: star patterns must correspond with varargs parameters
 [error]       case PathList("javax", "xml", xs@_*) => MergeStrategy.last
 [error]                                         ^
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:51:47: not found: value MergeStrategy
+[error] /home/smiklos/work/cloud-fun/project/Settings.scala:43:47: not found: value MergeStrategy
 [error]       case PathList("javax", "xml", xs@_*) => MergeStrategy.last
 [error]                                               ^
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:52:98: not found: value MergeStrategy
+[error] /home/smiklos/work/cloud-fun/project/Settings.scala:44:98: not found: value MergeStrategy
 [error]       case path if path.contains("commons-beanutils") || path.contains("commons-collections") => MergeStrategy.last
 [error]                                                                                                  ^
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:54:28: not found: value assemblyMergeStrategy
+[error] /home/smiklos/work/cloud-fun/project/Settings.scala:46:28: not found: value assemblyMergeStrategy
 [error]         val oldStrategy = (assemblyMergeStrategy in assembly).value
 [error]                            ^
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:54:53: not found: value assembly
+[error] /home/smiklos/work/cloud-fun/project/Settings.scala:46:53: not found: value assembly
 [error]         val oldStrategy = (assemblyMergeStrategy in assembly).value
 [error]                                                     ^
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:57:5: not found: value assemblyShadeRules
-[error]     assemblyShadeRules in assembly ++= Seq(
-[error]     ^
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:57:27: not found: value assembly
-[error]     assemblyShadeRules in assembly ++= Seq(
-[error]                           ^
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:58:7: not found: value ShadeRule
-[error]       ShadeRule.rename("shapeless.**" -> "shaded_shapeless.@1").inAll,
-[error]       ^
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:59:7: not found: value ShadeRule
-[error]       ShadeRule.rename("com.typesafe.config.**" -> "shaded_com.typesafe.config.@1").inAll
-[error]       ^
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:61:5: not found: value assemblyJarName
-[error]     assemblyJarName in assembly := "fat.jar",
-[error]     ^
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:61:24: not found: value assembly
-[error]     assemblyJarName in assembly := "fat.jar",
-[error]                        ^
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:62:5: not found: value assemblyOption
-[error]     assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false),
-[error]     ^
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:62:23: not found: value assembly
-[error]     assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false),
-[error]                       ^
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:62:36: not found: value assemblyOption
-[error]     assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false),
-[error]                                    ^
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:62:54: not found: value assembly
-[error]     assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false),
-[error]                                                      ^
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:62:75: not found: value includeScala
-[error]     assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false),
-[error]                                                                           ^
-[error] /home/smiklos/work/cloud-fun/project/Settings.scala:63:13: not found: value assembly
-[error]     test in assembly := {}
-[error]             ^
-[error] 28 errors found
+[error] 9 errors found

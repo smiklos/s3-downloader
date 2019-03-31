@@ -5,21 +5,18 @@ version := "0.1"
 scalaVersion := "2.12.8"
 
 libraryDependencies += "com.lightbend.akka" %% "akka-stream-alpakka-kinesis" % "1.0-M3"
-
-
-
+libraryDependencies += "com.typesafe.akka" %% "akka-http" % "10.1.8"
+libraryDependencies += "com.typesafe.akka" %% "akka-http-spray-json" % "10.1.8"
+libraryDependencies += "io.spray" %% "spray-json" % "1.3.3"
+libraryDependencies += "com.amazonaws" % "aws-java-sdk-s3" % "1.11.529"
 
 val root = project.in(file("."))
   .settings(name := "cloud-fun")
-  .aggregate(downloaderAgent, downloaderCli, downloadIniter)
+  .aggregate(downloaderAgent)
 
-lazy val downloaderAgent = project
+lazy val downloaderAgent = project.in(file("downloader"))
   .settings(Settings.withCommonSettings: _*)
+  .settings(Settings.withAssembly: _*)
   .settings(Settings.withTesting: _*)
-  .settings(inThisBuild(libraryDependencies ++= Settings.spark ++ Settings.configs ++ Settings.testing))
+  .settings(inThisBuild(libraryDependencies ++= Settings.configs))
 
-lazy val downloaderCli = project
-  .settings(mainClass in assembly := Some("io.smiklos.Downloader"))
-  .settings(Settings.withCommonSettings: _*)
-  .settings(Settings.withTesting: _*)
-  .settings(inThisBuild(libraryDependencies ++= Settings.databases ++ Settings.logging ++ Settings.infare ++ Settings.notebook))

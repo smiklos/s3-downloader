@@ -1,4 +1,14 @@
 {
   "bucket": "infare-dev-test",
-  "key" : "testbig.json"
+  "key": "testbig.json",
+  "splits": [{
+      "key": "1-0",
+      "chunk": 1048573
+
+    },
+    {
+      "key": "1-1",
+      "chunk": 535907
+    }
+  ]
 }

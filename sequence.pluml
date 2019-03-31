@@ -1,0 +1,10 @@
+@startuml
+
+"Download Service" -> "Object Store" : Get Content Length
+"Download Service" -> "Splitter API Gateway" : Split Files
+"Splitter API Gateway" -> "Splitter Lambda" : Split Files
+"Splitter Lambda" -> "Object Store" : Get Content and Split
+"Splitter Lambda" -> Kinesis : Put Content Parts
+"Kinesis" -> "Download Service" : Download Content Parts
+"Download Service" -> "Local Storage" : Save File
+@enduml
