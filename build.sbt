@@ -12,9 +12,9 @@ libraryDependencies += "com.amazonaws" % "aws-java-sdk-s3" % "1.11.529"
 
 val root = project.in(file("."))
   .settings(name := "cloud-fun")
-  .aggregate(downloaderAgent)
+  .aggregate(downloader)
 
-lazy val downloaderAgent = project.in(file("downloader"))
+lazy val downloader = project.in(file("downloader"))
   .settings(Settings.withCommonSettings: _*)
   .settings(Settings.withAssembly: _*)
   .settings(Settings.withTesting: _*)
