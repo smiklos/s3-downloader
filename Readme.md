@@ -1,6 +1,7 @@
 # Cloud File Downloader
 
-A set of services to circumvent s3 egress costs and instead download files via kinesis. 
+A set of services to circumvent s3 egress costs and instead download files via kinesis using cutting edge technologies like 
+serverless programming and docker
 
 ## Motivation
 
