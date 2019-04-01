@@ -1,5 +1,7 @@
 # Cloud File Downloader
 
+A set of services to circumvent s3 egress costs and instead download files via kinesis. 
+
 ## Motivation
 
 * Transfer prices are high when downloading from object stores like AWS S3
