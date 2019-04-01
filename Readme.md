@@ -1,5 +1,6 @@
 # Cloud File Downloader
 
+![Architecture](architecture.png "Architecture")
 
 ![Main flow](sequence.png "Main flow")
 
