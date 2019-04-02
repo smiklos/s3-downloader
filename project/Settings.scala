@@ -1,4 +1,4 @@
-import sbt.Keys._
+import sbt.Keys.{libraryDependencies, _}
 import sbt._
 import sbtassembly.AssemblyPlugin.autoImport._
 
@@ -43,6 +43,14 @@ object Settings {
         oldStrategy(x)
     }
 
+  )
+
+  val deps: Seq[ModuleID] = Seq(
+    "com.lightbend.akka" %% "akka-stream-alpakka-kinesis" % "1.0-M3",
+    "com.typesafe.akka" %% "akka-http" % "10.1.8",
+    "com.typesafe.akka" %% "akka-http-spray-json" % "10.1.8",
+    "io.spray" %% "spray-json" % "1.3.3",
+    "com.amazonaws" % "aws-java-sdk-s3" % "1.11.529"
   )
 
 }

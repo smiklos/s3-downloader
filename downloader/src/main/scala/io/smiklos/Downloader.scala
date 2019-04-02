@@ -1,6 +1,6 @@
 package io.smiklos
 
-import java.io.{BufferedWriter, File, FileWriter}
+import java.io.{BufferedWriter, File, FileOutputStream, FileWriter}
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicInteger
 
@@ -100,14 +100,13 @@ object Downloader extends App {
   Http().bindAndHandle(route, "localhost", 8081)
 
   private def writeFile(location: String, fileName: String, bytes: Array[Byte]): Unit = {
-    val file = new File(location + File.separator + fileName)
-    val bw = new BufferedWriter(new FileWriter(file))
-    bw.write(new String(bytes, "UTF-8"))
-    bw.close()
+    val fos = new FileOutputStream(location + File.separator + fileName)
+    fos.write(bytes)
+    fos.close()
   }
 
   private def post(splitRequest: SplitRequest): Future[HttpResponse] = {
-    println("posting")
+    println(s"posting ${splitRequest.splits.size} splits for ${splitRequest.key}")
     implicit val splitFormat = jsonFormat2(FileSplit)
 
     implicit val splitRequestFormat = jsonFormat3(SplitRequest)

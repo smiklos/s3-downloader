@@ -1,5 +1,6 @@
 .idea/
 project/project
-project/target
+project/target/
 target/
 .sbt/
+file-splitter/databirckscli.mp4-copied.gz
