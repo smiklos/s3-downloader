@@ -21,16 +21,23 @@ def handle(event, context):
     obj = s3.Object(bucket, key)
     object_stream = obj.get()['Body']
 
-    records = [_create_record(split['key'], object_stream.read(split['chunk'])) for split in body['splits']]
 
-    response = kinesis.put_records(
-                        Records = list(records),
-                        StreamName = os.environ['STREAM_NAME']
-                        )
+    batches = split_up(body['splits'], 5)
+    for batch in batches:
+
+        records = [_create_record(split['key'], object_stream.read(split['chunk'])) for split in batch]
+        print("sending batch")
+        response = kinesis.put_records(
+                            Records = list(records),
+                            StreamName = os.environ['STREAM_NAME']
+                            )
     return {
      'statusCode': 200
     }
 
+def split_up(l, n):
+    for i in range(0, len(l), n):
+        yield l[i:i + n]
 
 def _create_record(key, chunk):
     return {

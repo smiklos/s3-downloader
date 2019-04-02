@@ -18,6 +18,7 @@ object DownloadManager {
     }
     else {
       chunkBuffer.put(id, extended)
+      println(s"Gathered ${extended.size} chunks for $id")
       Partial
     }
   }
